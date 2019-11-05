@@ -36,7 +36,7 @@ function graphData(database, xaxis, yaxis, n) {
         graph2.destroy();
     }
 
-    d3.csv("/csv/" + database + ".csv")
+    d3.csv("csv/" + database + ".csv")
     .then(function(data) {
         var labelsArr = [];
         var dataArr = [];
@@ -47,7 +47,7 @@ function graphData(database, xaxis, yaxis, n) {
 
         //add driving question
         var dq = document.getElementById("driving_question");
-        d3.csv("/csv/driving-questions.csv").then(function(q_data){
+        d3.csv("csv/driving-questions.csv").then(function(q_data){
             question = q_data[0][database];
             dq.innerHTML=question;
         })
@@ -117,7 +117,7 @@ function switchToDefault() {
     clearMenu("yaxis1", false);
 
     //read the csv file to get all keys
-    d3.csv("/csv/" + defaultDatabase1 + ".csv")
+    d3.csv("csv/" + defaultDatabase1 + ".csv")
     .then(function(data) {
         var keys = Object.keys(data[0]);
         keys.sort();
@@ -165,7 +165,7 @@ function switchToDefault() {
     clearMenu("yaxis2", false);
 
     //read the csv file to get all keys
-    d3.csv("/csv/" + defaultDatabase2 + ".csv")
+    d3.csv("csv/" + defaultDatabase2 + ".csv")
     .then(function(data) {
         var keys = Object.keys(data[0]);
         keys.sort();
@@ -250,7 +250,7 @@ function verifyDB(n) {
         document.getElementById("submit" + n).disabled = true;
 
         //load keys into x-axis, y-axis menus
-        d3.csv("/csv/" + dbOption + ".csv")
+        d3.csv("csv/" + dbOption + ".csv")
         .then(function(data) {
             var keys = Object.keys(data[0]);
             keys.sort();
