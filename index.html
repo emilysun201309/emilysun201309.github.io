@@ -1,0 +1,136 @@
+<html>
+
+<title>Data Visualization For Literacy</title>
+
+<!-- JS -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="scripts/script.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"-->
+
+<!-- HTML -->
+<body>
+        <div class="row">
+            <div class="column">
+                <div>
+                    <img class="logo" src="img/logo.png">
+                </div>
+
+                <h1>Graph 1:</h1>
+                Database:
+                <select id="database1" onchange="verifyDB(1)">
+                    <option value=""></option>
+                    <option value="Populations" selected>Populations</option>
+                </select>
+                <p></p>
+                X axis:
+                <select id="xaxis1" onchange="verifyOptions(1)">
+                    <option value="Year" selected>Year</option>
+                </select>
+                <p></p>
+                Y axis:
+                <select id="yaxis1" onchange="verifyOptions(1)">
+                    <option value="Rwanda" selected>Rwanda</option>
+                </select>
+                <p></p>
+                <button id="submit1" onclick="submitGraphData(1)">Submit</button>
+
+                <h1>Graph 2:</h1>
+                Database:
+                <select id="database2" onchange="verifyDB(2)">
+                    <option value=""></option>
+                    <option value="Populations" selected>Populations</option>
+                </select>
+                <p></p>
+                X axis:
+                <select id="xaxis2" onchange="verifyOptions(2)">
+                    <option value="Year" selected>Year</option>
+                </select>
+                <p></p>
+                Y axis:
+                <select id="yaxis2" onchange="verifyOptions(2)">
+                    <option value="Algeria" selected>Algeria</option>
+                </select>
+                <p></p>
+                <button id="submit2" onclick="submitGraphData(2)">Submit</button>
+
+                <br><br><br><br>
+                <button id="default" onclick="switchToDefault()">DEFAULT</button>
+                <button id="clear" onclick="clearAllValues()">CLEAR</button>
+            </div>
+
+            <div class="column">
+                <h1>Graphs</h1>
+                <div>
+                    <div id="driving_question"></div>
+                    <canvas id="canvas1"></canvas>
+                </div>
+                <div>
+                    <canvas id="canvas2"></canvas>
+                </div>
+            </div>
+
+            <div class="column">
+                <h1>Saved</h1>
+                <div class="pillar">
+                    <div class="frame">
+                        <span class="helper"></span>
+                        <div class="tile" id="saved1"></div>
+                    </div>
+                    <div class="frame">
+                        <span class="helper"></span>
+                        <div class="tile" id="saved2"></div>
+                    </div>
+                    <div class="frame">
+                        <span class="helper"></span>
+                        <div class="tile" id="saved3"></div>
+                    </div>
+                    <div class="frame">
+                        <span class="helper"></span>
+                        <div class="tile" id="saved4"></div>
+                    </div>
+                    <div class="frame">
+                        <span class="helper"></span>
+                        <div class="tile" id="saved5"></div>
+                    </div>
+                    <div class="frame">
+                        <span class="helper"></span>
+                        <div class="tile" id="saved6"></div>
+                    </div>
+                </div>
+                <div class="pillar">
+                    <div class="frame">
+                        <span class="helper"></span>
+                        <div class="tile" id="saved7"></div>
+                    </div>
+                    <div class="frame">
+                        <span class="helper"></span>
+                        <div class="tile" id="saved8"></div>
+                    </div>
+                    <div class="frame">
+                        <span class="helper"></span>
+                        <div class="tile" id="saved9"></div>
+                    </div>
+                    <div class="frame">
+                        <span class="helper"></span>
+                        <div class="tile" id="saved10"></div>
+                    </div>
+                    <div class="frame">
+                        <span class="helper"></span>
+                        <div class="tile" id="saved11"></div>
+                    </div>
+                    <div class="frame">
+                        <span class="helper"></span>
+                        <div class="tile" id="saved12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

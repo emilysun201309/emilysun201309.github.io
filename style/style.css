@@ -1,0 +1,78 @@
+body {
+  background-color:#015c92ff;
+  color:white
+}
+
+* {
+ font-family: Arial;
+}
+
+.logo {
+  height: 81px;
+  width: 322px;
+}
+
+.row {
+  height: 100%;
+  width: 100%;
+  min-width: 1100px;
+}
+
+.column {
+  float: left;
+  height: 100%;
+  width: 32%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-left: 5px;
+}
+
+.pillar {
+  float: left;
+  height: 100% - 50px;
+  width: 50%;
+  min-width: 100px;
+}
+
+.frame {
+  position: relative;
+  float: top;
+  height: 14%;
+  width: 100%;
+  min-height: 75px;
+}
+
+.helper {
+  display: inline-block;
+  height: 10%;
+  vertical-align: middle;
+}
+
+.tile {
+  float: none;
+  display: block;
+  width: 80%;
+  height: 80%;
+  margin: auto;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+#submit1 {
+  background-color: #f8d605;
+  color: #015c92;
+}
+
+#submit2 {
+  background-color: #f8d605;
+  color: #015c92;
+}
+
+#default {
+  background-color: #b7b7b7;
+  color: white;
+}
+
+#clear {
+  background-color: #990000;
+  color: white;
+}
