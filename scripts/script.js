@@ -7,14 +7,32 @@ npm install http-server -g
 And then type:
 http-server -p 4200 -c-1
 And open localhost:4200/index.html in a browser. You can replace 4200 with any number
+To get a public URL, open another terminal and navigate to this folder again. Then:
+ngrok http 4200
+There will be a public URL displayed that looks like a scramble of random letters & numbers.
+This URL will tunnel to your localhost. It expires after a day unless you sign into ngrok.
+The ngrok website will have instructions for that. It's free.
 */
 
 var defaultDatabase1 = "Populations";
 var defaultXAxis1 = "Year";
 var defaultYAxis1 = "Rwanda";
-var defaultDatabase2 = "Populations";
+
+var defaultDatabase2 = "Military";
 var defaultXAxis2 = "Year";
 var defaultYAxis2 = "Algeria";
+
+var defaultDatabase3 = "County Demographic";
+var defaultXAxis3 = "State";
+var defaultYAxis3 = "Income.Median Household Income";
+
+var defaultDatabase4 = "LifeExpectancy";
+var defaultXAxis4 = "Entity";
+var defaultYAxis4 = "Life expectancy (years)";
+
+var defaultDatabase5 = "Slavery";
+var defaultXAxis5 = "Buyer.County of Origin";
+var defaultYAxis5 = "Transaction.Sale Details.Price";
 
 var graph1 = undefined;
 var graph2 = undefined;
@@ -36,7 +54,7 @@ function graphData(database, xaxis, yaxis, n) {
         graph2.destroy();
     }
 
-    d3.csv("csv/" + database + ".csv")
+    d3.csv("/csv/" + database + ".csv")
     .then(function(data) {
         var labelsArr = [];
         var dataArr = [];
@@ -47,7 +65,7 @@ function graphData(database, xaxis, yaxis, n) {
 
         //add driving question
         var dq = document.getElementById("driving_question");
-        d3.csv("csv/driving-questions.csv").then(function(q_data){
+        d3.csv("/csv/driving-questions.csv").then(function(q_data){
             question = q_data[0][database];
             dq.innerHTML=question;
         })
@@ -117,7 +135,7 @@ function switchToDefault() {
     clearMenu("yaxis1", false);
 
     //read the csv file to get all keys
-    d3.csv("csv/" + defaultDatabase1 + ".csv")
+    d3.csv("/csv/" + defaultDatabase1 + ".csv")
     .then(function(data) {
         var keys = Object.keys(data[0]);
         keys.sort();
@@ -165,7 +183,7 @@ function switchToDefault() {
     clearMenu("yaxis2", false);
 
     //read the csv file to get all keys
-    d3.csv("csv/" + defaultDatabase2 + ".csv")
+    d3.csv("/csv/" + defaultDatabase2 + ".csv")
     .then(function(data) {
         var keys = Object.keys(data[0]);
         keys.sort();
@@ -250,7 +268,7 @@ function verifyDB(n) {
         document.getElementById("submit" + n).disabled = true;
 
         //load keys into x-axis, y-axis menus
-        d3.csv("csv/" + dbOption + ".csv")
+        d3.csv("/csv/" + dbOption + ".csv")
         .then(function(data) {
             var keys = Object.keys(data[0]);
             keys.sort();
